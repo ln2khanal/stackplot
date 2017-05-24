@@ -4,6 +4,7 @@ import numpy as np
 import glob
 import random
 import sys
+import os
 
 COLOR_SET = [
     "k",
@@ -38,11 +39,7 @@ def get_filename_from_file_path(file_path):
     :param file_path: file path
     :return: file name, string
     """
-    directory_filename = str(file_path).rsplit('/', 1)
-    if len(directory_filename) == 2:
-        file_name = directory_filename[1].replace('.xy', '')
-    else:
-        file_name = file_path
+    file_name = os.path.basename(file_path).replace('.xy', '')
     return file_name
 
 
