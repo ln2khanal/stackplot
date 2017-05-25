@@ -13,7 +13,7 @@ COLOR_SET = [
     "r"
 ]
 
-BASE_DIR = ""
+BASE_DIR = "/Users/lekhnathkhanal/Downloads"
 
 
 def initialize_plot():
@@ -75,7 +75,6 @@ def arrange_plots(sub_plot, file_path):
     np_object_from_text = np_object_from_text[:, 1]
     sub_plot.plot(t, np_object_from_text, label=file_name, color=COLOR_SET[random.randint(0, len(COLOR_SET) - 1)])
     sub_plot.legend(loc='upper right')
-    sub_plot.yticks([])
     sub_plot.grid()
 
 
