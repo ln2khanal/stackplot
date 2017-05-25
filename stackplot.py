@@ -5,6 +5,7 @@ import glob
 import random
 import sys
 import os
+import time
 
 COLOR_SET = [
     "k",
@@ -85,6 +86,20 @@ def show_plot():
     plt.show()
 
 
+def save_result_in_image():
+    """
+    saves the plot result into an image file
+    :return: file path
+    """
+    output_dir = os.path.join(BASE_DIR, "XRDPlots")
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    output_image_file = os.path.join(output_dir, "XRDPlot_%s.png" % int(time.time()))
+    plt.savefig(output_image_file, bbox_inches='tight')
+
+    return output_image_file
+
+
 def main():
     print 'reading target directory=%s' % BASE_DIR
     file_list = read_target_files()
@@ -104,6 +119,10 @@ def main():
     for index, sub_plot in enumerate(sub_plots):
         print 'Working with file=%s' % file_list[index]
         arrange_plots(sub_plot, file_list[index])
+
+    print "saving results into an image file"
+    image_file_path = save_result_in_image()
+    print 'result saved @ %s' % image_file_path
 
     print 'showing the results'
     show_plot()
