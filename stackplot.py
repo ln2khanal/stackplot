@@ -13,7 +13,7 @@ COLOR_SET = [
     "r"
 ]
 
-BASE_DIR = "/Users/lekhnathkhanal/Downloads"
+BASE_DIR = ""
 
 
 def initialize_plot():
